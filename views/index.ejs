@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax Practice</title>
+    <style>
+        .container{
+        width: 800px;
+        height: 350px;
+        border: 2px coral dotted;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1> Welcome to the demo, <%= name %></h1>
+    <div class="container">
+
+        <img src="<%= pic %>" width="150" length="150" alt=<%= pic %>>
+        <p id="demo1">Get content through Ajax request</p>
+        <button type='button' onclick="changeContent()">Change text content</button>
+    </div>
+
+
+    <script>
+        function changeContent() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                document.getElementById("demo1").innerHTML = this.responseText;
+            }
+            xhttp.open('GET', 'raw.txt');
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>
